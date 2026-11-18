@@ -12,8 +12,11 @@ members = [
     "steel-crypto",
     "steel-math",
     "steel-flint",
+    "steel-converter-prototype",
 ]
-# steel-flint is only built on demand via `-p steel-flint`.
+# Vendored Azalea is its own workspace.
+exclude = ["vendor/azalea"]
+# steel-flint and steel-converter-prototype are only built on demand via `-p <crate>`.
 default-members = [
     "steel",
     "steel-login",

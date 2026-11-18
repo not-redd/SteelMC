@@ -2,7 +2,7 @@
 # Install with: prek install
 # Run manually with: prek run --all-files
 
-exclude = '(\.json$|generated/|.mcmeta)'
+exclude = '(\.json$|generated/|.mcmeta|^vendor/)'
 
 [[repos]]
 repo = "builtin"

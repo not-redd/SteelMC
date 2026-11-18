@@ -1,0 +1,39 @@
+[package]
+name = "steel-converter-prototype"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Prototype converter from vanilla Minecraft saves to Steel's world storage format"
+
+[[bin]]
+name = "steel-converter"
+path = "src/main.rs"
+
+[dependencies]
+steel-core.workspace = true
+steel-registry.workspace = true
+steel-utils.workspace = true
+
+tokio = { workspace = true, features = ["rt-multi-thread", "fs"] }
+rayon.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+simdnbt.workspace = true
+wincode.workspace = true
+flate2.workspace = true
+zstd.workspace = true
+rustc-hash.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+# Azalea's `26.3` branch at 8041a147, plus upstream main's `generic_const_args` migration
+# (b65fa8cf, 725d3f7f) and `ActionEnumSet` sized for 8 bits. Unpatched, it crashes rustc.
+azalea = { path = "../vendor/azalea/azalea" }
+tokio = { workspace = true, features = ["rt-multi-thread", "fs", "process", "net", "time"] }
+
+[lints]
+workspace = true
